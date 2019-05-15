@@ -1,0 +1,19 @@
+---
+- hosts: web
+  tasks:
+    - name: install ntp
+      apt:
+        name: ntp
+        state: present
+    - name: install apache2
+      apt: 
+        name: apache2
+        state: present
+    - name: install mysql
+      package:
+        name: mysql-client
+        state: present
+    - name: service check
+      service:
+        name: ntp
+        state: stopped
